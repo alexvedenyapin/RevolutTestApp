@@ -45,6 +45,9 @@ dependencies {
 
     implementation timber.core
 
-    androidTestImplementation test.junit
+    testImplementation test.junit
     testImplementation test.mockito
+    testImplementation test.mockitoInline
+    testImplementation test.mockitoKotlin
+    testImplementation test.androidArchTesting
 }

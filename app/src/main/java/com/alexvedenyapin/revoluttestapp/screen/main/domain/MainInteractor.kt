@@ -20,11 +20,12 @@ class MainInteractor(
     fun getCurrenciesRates(
         onSuccess: (Pair<String, List<CurrencyRate>>) -> Unit,
         onError: (Throwable) -> Unit
-    ) =
+    ) {
         compositeDisposable.add(Observable.interval(0, 1, TimeUnit.SECONDS)
             .flatMap { currenciesRatesRepository.getCurrenciesRates() }
             .composeWith(workers)
             .subscribe(onSuccess, onError))
+    }
 
     fun clearDisposable() {
         compositeDisposable.clear()

@@ -43,8 +43,10 @@ ext {
     /**
      * Testing
      */
-    junitVersion = '1.1.1'
+    junitVersion = '4.12'
     mockitoVersion = '2.23.4'
+    mockitoKotlinVersion = '2.1.0'
+    androidArchTestingVersion = "1.1.1"
 
     androidLibraries = [
             appCompat            : "androidx.appcompat:appcompat:$appCompatVersion",
@@ -84,7 +86,10 @@ ext {
     timber = [core: "com.jakewharton.timber:timber:$timberVersion"]
 
     test = [
-            junit             : "androidx.test.ext:junit:$junitVersion",
+            junit             : "junit:junit:$junitVersion",
             mockito           : "org.mockito:mockito-core:$mockitoVersion",
+            mockitoInline     : "org.mockito:mockito-inline:$mockitoVersion",
+            mockitoKotlin     : "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
+            androidArchTesting: "android.arch.core:core-testing:$androidArchTestingVersion"
     ]
 }
