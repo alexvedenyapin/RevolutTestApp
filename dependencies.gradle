@@ -31,6 +31,11 @@ ext {
     gsonVersion = '2.8.5'
 
     /**
+     * Timber
+     */
+    timberVersion = '4.7.1'
+
+    /**
      * Kotlin
      */
     kotlinVersion = kotlin_version
@@ -75,6 +80,8 @@ ext {
     kotlinLib = [core: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"]
 
     androidKtx = [core: "androidx.core:core-ktx:$androidKtxVersion"]
+
+    timber = [core: "com.jakewharton.timber:timber:$timberVersion"]
 
     test = [
             junit             : "androidx.test.ext:junit:$junitVersion",

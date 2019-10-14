@@ -6,8 +6,6 @@ import com.alexvedenyapin.revoluttestapp.network.response.Rates
  * Created by Alex Vedenyapin on 14.10.2019
  */
 
-private const val BASE_DEFAULT_RATIO = 1.0
-
 class CurrencyRateMapper {
     fun mapResponseToCurrenciesList(rates: Rates) = listOf(
         CurrencyRate("EUR", BASE_DEFAULT_RATIO),

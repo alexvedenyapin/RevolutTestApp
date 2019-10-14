@@ -5,6 +5,7 @@ import com.alexvedenyapin.revoluttestapp.model.CurrencyRate
 import com.alexvedenyapin.revoluttestapp.screen.main.data.CurrenciesRatesRepository
 import com.alexvedenyapin.revoluttestapp.util.composeWith
 import io.reactivex.Observable
+import io.reactivex.disposables.CompositeDisposable
 import java.util.concurrent.TimeUnit
 
 /**
@@ -14,9 +15,18 @@ class MainInteractor(
     private val currenciesRatesRepository: CurrenciesRatesRepository,
     private val workers: RxWorkers
 ) {
+    private val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
-    fun getCurrenciesRates(): Observable<Pair<String, List<CurrencyRate>>> =
-        Observable.interval(0, 1, TimeUnit.SECONDS)
+    fun getCurrenciesRates(
+        onSuccess: (Pair<String, List<CurrencyRate>>) -> Unit,
+        onError: (Throwable) -> Unit
+    ) =
+        compositeDisposable.add(Observable.interval(0, 1, TimeUnit.SECONDS)
             .flatMap { currenciesRatesRepository.getCurrenciesRates() }
             .composeWith(workers)
+            .subscribe(onSuccess, onError))
+
+    fun clearDisposable() {
+        compositeDisposable.clear()
+    }
 }

@@ -39,11 +39,11 @@ class CurrenciesRatesAdapter(
     private fun bindCurrencyRateInfo(holder: CurrencyRateHolder, item: CurrencyRateListItem) =
         with(holder.itemView) {
             holder.item = item
+            currencyName.text = item.currency
             currencyValue.setText(if (item.value > 0) formatValue(item) else "")
         }
 
-    private fun View.formatValue(item: CurrencyRateListItem): String? {
-        currencyName.text = item.currency
+    private fun formatValue(item: CurrencyRateListItem): String? {
         val df = DecimalFormat("##.##")
         val formattedValue = df.format(item.value)
         return if (formattedValue.contains(",")) formattedValue.replace(',', '.') else formattedValue

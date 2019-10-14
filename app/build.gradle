@@ -43,6 +43,8 @@ dependencies {
     implementation retrofit.logging
     implementation retrofit.okhttp
 
+    implementation timber.core
+
     androidTestImplementation test.junit
     testImplementation test.mockito
 }
