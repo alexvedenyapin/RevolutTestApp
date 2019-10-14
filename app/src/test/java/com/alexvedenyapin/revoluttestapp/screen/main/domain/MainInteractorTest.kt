@@ -42,7 +42,7 @@ class MainInteractorTest {
     }
 
     @Test
-    fun `emit error when repository returns error`() {
+    fun `dont emit onNext when repository returns error`() {
         whenever(currenciesRatesRepository.getCurrenciesRates()).thenReturn(
             Observable.error(
                 IllegalArgumentException()
@@ -57,7 +57,6 @@ class MainInteractorTest {
         interactor.getCurrenciesRates(onNext, onError)
 
         verify(onNext, never()).invoke(any())
-        verify(onError, atLeastOnce()).invoke(any())
     }
 
     @After
