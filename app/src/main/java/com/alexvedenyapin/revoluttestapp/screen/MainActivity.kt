@@ -1,7 +1,8 @@
-package com.alexvedenyapin.revoluttestapp
+package com.alexvedenyapin.revoluttestapp.screen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.alexvedenyapin.revoluttestapp.R
 
 class MainActivity : AppCompatActivity() {
 

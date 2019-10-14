@@ -11,7 +11,7 @@ ext {
     /**
      * Dagger
      */
-    daggerVersion = '2.19'
+    daggerVersion = '2.22'
 
     /**
      * ReactiveX
